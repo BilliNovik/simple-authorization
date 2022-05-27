@@ -12,10 +12,11 @@ export const getUsers = async (req, res) => {
 
         return res.json(users)
 
-    } catch (err) {
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json({ message: 'проблема с получением пользователей' })
 
     }
-
 }
 
 export const signup = async (req, res) => {
@@ -41,10 +42,11 @@ export const signup = async (req, res) => {
 
         return res.json({ message: 'пользователь успешно создан' })
 
-    } catch (err) {
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json({ message: 'проблема с регистрацией' })
 
     }
-
 }
 
 export const signin = async (req, res) => {
@@ -65,7 +67,9 @@ export const signin = async (req, res) => {
 
         return res.json({ message: 'успешный вход', token })
 
-    } catch (err) {
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json({ message: 'проблема с входом' })
 
     }
 }
